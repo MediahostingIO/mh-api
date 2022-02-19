@@ -10,8 +10,8 @@ export default class SubUserController {
         return MHApi.request('GET', 'subuser/' + id);
     }
 
-    public async getSubUsersForProduct(id: string): Promise<Subuser[]> {
-        return MHApi.request('GET', 'subuser/' + id);
+    public async createSubUser(id: string): Promise<Subuser> {
+        return MHApi.request('POST', 'subuser/' + id);
     }
 
     public async editSubUser(id: string, data: Subuser): Promise<Subuser> {

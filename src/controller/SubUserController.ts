@@ -14,7 +14,11 @@ export default class SubUserController {
         return MHApi.request('POST', 'subuser/' + id);
     }
 
-    public async editSubUser(id: string, data: Subuser): Promise<Subuser> {
-        return MHApi.request('PUT', 'subuser', {data});
+    public async addProductToSubUser(id: string, productId: string): Promise<Subuser> {
+        return MHApi.request('POST', 'subuser/' + id + '/product/' + productId);
+    }
+
+    public async editSubUserPermissions(id: string, productId: string, permissions: string[]): Promise<Subuser> {
+        return MHApi.request('PUT', 'subuser/' + id + '/product/' + productId, {data: {permissions}});
     }
 }

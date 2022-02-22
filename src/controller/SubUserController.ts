@@ -12,7 +12,7 @@ export default class SubUserController {
     }
 
     public  async getAvailableProducts(id: string): Promise<CustomerProduct[]> {
-        return MHApi.request('GET', 'subuser/availableProducts');
+        return MHApi.request('GET', 'subuser/' + id + '/availableProducts');
     }
 
     public async createSubUser(id: string): Promise<Subuser> {

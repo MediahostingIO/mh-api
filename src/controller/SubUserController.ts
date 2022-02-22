@@ -1,5 +1,6 @@
 import {MHApi} from "../mh-api";
 import {Subuser} from "../types/Subuser";
+import {CustomerProduct} from "../types/product";
 
 export default class SubUserController {
     public async getAllSubUser(): Promise<Subuser[]> {
@@ -8,6 +9,10 @@ export default class SubUserController {
 
     public async getSubUser(id: string): Promise<Subuser> {
         return MHApi.request('GET', 'subuser/' + id);
+    }
+
+    public  async getAvailableProducts(id: string): Promise<CustomerProduct[]> {
+        return MHApi.request('GET', 'subuser/availableProducts');
     }
 
     public async createSubUser(id: string): Promise<Subuser> {

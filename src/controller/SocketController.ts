@@ -13,7 +13,7 @@ interface DefaultCallbacks {
 
 export class SocketController {
     public createClient(path: string, callbacks: DefaultCallbacks, query?: any): Socket {
-        return io('http://109.230.230.199:4000/' + path, {
+        return io('http://109.230.230.195:4000/' + path, {
             auth: {
                 token: localStorage.getItem('authToken')
             },

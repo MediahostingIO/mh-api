@@ -31,7 +31,7 @@ export class SocketController {
 
     public connectToTicketSocket(ticketId: string, onTicketMessage: (message: Message) => void, callbacks: DefaultCallbacks): Socket {
         return this
-            .createClient('tickets', callbacks)
+            .createClient('tickets', callbacks, {id: ticketId})
             .on('ticketMessage', onTicketMessage);
     }
 

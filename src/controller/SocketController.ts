@@ -2,6 +2,7 @@ import { io, Socket } from "socket.io-client";
 import { Notification } from "../types/notification";
 import { KvmCallbacks } from '../types/vms/socket';
 import { Message } from '../types/ticket/ticket';
+import {MHApi} from "../mh-api";
 
 interface DefaultCallbacks {
     onError: (error: any) => void;
@@ -13,7 +14,7 @@ interface DefaultCallbacks {
 
 export class SocketController {
     public createClient(path: string, callbacks: DefaultCallbacks, query?: any): Socket {
-        return io('http://109.230.230.195:4000/' + path, {
+        return io( MHApi.socketHost + path, {
             auth: {
                 token: localStorage.getItem('authToken')
             },

@@ -17,7 +17,6 @@ import SubUserController from "./controller/SubUserController";
 class MHApi {
     private static _authToken: string;
     private static _host: string;
-    private static _socketHost: string;
     private static _active = false;
 
     public static readonly authentication = new AuthenticationController();
@@ -32,12 +31,11 @@ class MHApi {
     public static readonly products = new ProductsController();
     public static readonly settings = new SettingsController();
     public static readonly subuser = new SubUserController();
-    public static socket = new SocketController();
+    public static socket: SocketController;
 
     public static initialize(host: string, socketHost: string): void {
         this._host = host;
-        this._socketHost = socketHost;
-        this.socket = new SocketController();
+        this.socket = new SocketController(socketHost);
         if (typeof localStorage !== 'undefined' && localStorage.getItem('authToken')) {
             this.setAuthToken(localStorage.getItem('authToken')!);
         }
@@ -45,10 +43,6 @@ class MHApi {
 
     public static get host(): string {
         return this._host;
-    }
-
-    public static get socketHost():string {
-        return this._socketHost;
     }
 
     public static setAuthToken(token: string): void {

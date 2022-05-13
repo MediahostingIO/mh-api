@@ -1,8 +1,7 @@
-import { io, Socket } from "socket.io-client";
-import { Notification } from "../types/notification";
-import { KvmCallbacks } from '../types/vms/socket';
-import { Message } from '../types/ticket/ticket';
-import {MHApi} from "../mh-api";
+import {io, Socket} from "socket.io-client";
+import {Notification} from "../types/notification";
+import {KvmCallbacks} from '../types/vms/socket';
+import {Message} from '../types/ticket/ticket';
 
 interface DefaultCallbacks {
     onError: (error: any) => void;
@@ -13,8 +12,14 @@ interface DefaultCallbacks {
 }
 
 export class SocketController {
+    private _socketHost: string;
+
+    constructor(socketHost: string) {
+        this._socketHost = socketHost;
+    }
+
     public createClient(path: string, callbacks: DefaultCallbacks, query?: any): Socket {
-        return io( MHApi.socketHost + path, {
+        return io(this._socketHost + path, {
             auth: {
                 token: localStorage.getItem('authToken')
             },
@@ -40,7 +45,7 @@ export class SocketController {
         if (!localStorage?.getItem('authToken')) {
             throw new Error("authToken unavailable");
         }
-        const socket = this.createClient('kvm', callbacks, { id: kvmId });
+        const socket = this.createClient('kvm', callbacks, {id: kvmId});
         socket.on('kvm-data', dataCallbacks.onKvmData);
         socket.on('kvm-statistics', dataCallbacks.onKvmStatistics);
         socket.on('live-data', dataCallbacks.onLiveData);

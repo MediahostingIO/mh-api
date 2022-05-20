@@ -2,7 +2,7 @@ export enum TicketPriority {
     LOW = 'low',
     MEDIUM = 'medium',
     HIGH = 'high',
-    ASAP = 'asap',
+    CRITICAL = 'critical',
 }
 
 export enum TicketStatus {

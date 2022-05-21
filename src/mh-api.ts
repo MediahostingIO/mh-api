@@ -75,7 +75,7 @@ class MHApi {
                             authorization: 'Bearer ' + this._authToken,
                             ...options?.headers,
                         }
-                        : {},
+                        : {...options?.headers,},
                     url: this.host + '/' + uri,
                     responseType: options?.responseType,
                     method,

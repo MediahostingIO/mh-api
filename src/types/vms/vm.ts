@@ -59,7 +59,7 @@ export interface Vm {
     ram: number;
     cores: number;
     productName: string;
-    ip: string;
+    ips: { ip: string, rDns: string[], type: 'ipv4' | 'ipv6' }[];
     data?: VpsData;
     product: CustomerProduct;
 }

@@ -63,3 +63,12 @@ export interface Vm {
     data?: VpsData;
     product: CustomerProduct;
 }
+
+export interface KvmTemplate {
+    templateName: string;
+    vmId: string;
+    sortId: number;
+    displayName: string;
+    available: boolean;
+}
+

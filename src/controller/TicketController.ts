@@ -18,7 +18,7 @@ export class TicketController {
         return MHApi.request('POST', 'tickets', {data});
     }
 
-    public async sendMessage(id: string, message: string): Promise<TicketResponse> {
-        return MHApi.request('POST', 'tickets/' + id, {data: {message}});
+    public async sendMessage(id: string, message: string, quoteMessageId?: string): Promise<TicketResponse> {
+        return MHApi.request('POST', 'tickets/' + id, {data: {message, quoteMessageId}});
     }
 }

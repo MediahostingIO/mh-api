@@ -1,4 +1,4 @@
-import { Vm, VmResponse, VpsData } from '../../types/vms/vm';
+import {KvmTemplate, Vm, VmResponse, VpsData} from '../../types/vms/vm';
 import { MHApi } from '../../mh-api';
 import { VpsStatistics } from "../../types/vms/kvmStatistics";
 import {SshKey} from "../../types/vms/sshkey";
@@ -10,7 +10,7 @@ export class VmController {
         return MHApi.request('GET', 'kvm');
     }
 
-    public async templates(): Promise<void> {
+    public async templates(): Promise<KvmTemplate[]> {
         return MHApi.request('GET', 'kvm/templates');
     }
 
@@ -26,15 +26,15 @@ export class VmController {
         return MHApi.request('POST', 'kvm/sshkeys', {data: {name, publicKey}});
     }
 
-    public async deleteSshKey(id: string, sshKeyId: string): Promise<void> {
+    public async deleteSshKey(id: string, sshKeyId: string): Promise<{ success: boolean }> {
         return MHApi.request('DELETE', 'kvm/' + id + '/sshkeys/' + sshKeyId);
     }
 
-    public async setSshKey(id: string, sshKeyId: string): Promise<{ success: true }> {
+    public async setSshKey(id: string, sshKeyId: string): Promise<{ success: boolean }> {
         return MHApi.request('PUT', 'kvm/' + id + '/sshkeys/' + sshKeyId + '/enable');
     }
 
-    public async unsetSshKey(id: string, sshKeyId: string): Promise<{ success: true }> {
+    public async unsetSshKey(id: string, sshKeyId: string): Promise<{ success: boolean }> {
         return MHApi.request('PUT', 'kvm/' + id + '/sshkeys/' + sshKeyId + '/disable');
     }
 
@@ -62,11 +62,11 @@ export class VmController {
         return MHApi.request('PUT', 'kvm/' + id + '/reinstall', {data});
     }
 
-    public async setHostname(id: string, hostname: string): Promise<void> {
+    public async setHostname(id: string, hostname: string): Promise<{ success: boolean }> {
         return MHApi.request('PUT', 'kvm/' + id + '/hostname', {data: {hostname}});
     }
 
-    public async setRootPassword(id: string, password: string): Promise<void> {
+    public async setRootPassword(id: string, password: string): Promise<{ success: boolean }> {
         return MHApi.request('PUT', 'kvm/' + id + '/password', {data: {password}});
     }
 
@@ -74,7 +74,7 @@ export class VmController {
         return MHApi.request('PUT', 'kvm/' + id + '/rescue', {data});
     }
 
-    public async sendCommand(id: string, cmd: string): Promise<void> {
+    public async sendCommand(id: string, cmd: string): Promise<{ success: boolean }> {
         return MHApi.request('PUT', 'kvm/' + id + '/cmd', {data: {cmd}});
     }
 
@@ -86,7 +86,7 @@ export class VmController {
         return MHApi.request('POST', 'kvm/' + id + '/backups', {data: {mode}});
     }
 
-    public async restoreBackup(id: string, backupId: string): Promise<any> {
+    public async restoreBackup(id: string, backupId: string): Promise<{ success: boolean, backupId: string }> {
         return MHApi.request('POST', 'kvm/' + id + '/backups/' + backupId);
     }
 
@@ -98,7 +98,7 @@ export class VmController {
         return MHApi.request('POST', 'kvm/' + id + '/cronjobs', {data});
     }
 
-    public async deleteCronJob(id: string, cronJobId: string): Promise<void> {
+    public async deleteCronJob(id: string, cronJobId: string): Promise<{success: boolean, error?: string}> {
         return MHApi.request('DELETE', 'kvm/' + id + '/cronjobs/' + cronJobId);
     }
 }

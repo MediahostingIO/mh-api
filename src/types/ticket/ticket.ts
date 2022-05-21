@@ -24,6 +24,20 @@ export interface Message {
     userId: string;
     isFromUser: boolean;
     message: string;
+    quoteMessageId?: string;
+    quoteMessage: Message
+    user: User;
+}
+
+export interface Message {
+    messageId: string;
+    ticketId: number;
+    createdAt: Date;
+    userId: string;
+    isFromUser: boolean;
+    message: string;
+    quoteMessageId?: string;
+    quoteMessage: Message
     user: User;
 }
 
@@ -49,4 +63,9 @@ export interface BaseTicket {
     content: string;
     created: Date;
     lastMessage: Date;
+}
+
+export interface Department {
+    id: number,
+    name: string
 }

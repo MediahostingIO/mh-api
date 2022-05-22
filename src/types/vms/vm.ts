@@ -20,6 +20,7 @@ export interface VpsData {
     maxDisk: number;
     status: string;
     node: string;
+    templateName: string;
     ipv4: string;
     ipv6: string;
 }

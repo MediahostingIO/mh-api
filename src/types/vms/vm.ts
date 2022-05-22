@@ -73,3 +73,7 @@ export interface KvmTemplate {
     available: boolean;
 }
 
+export interface KvmActions {
+    id: string;
+    act: 'start' | 'stop' | 'restart' | 'poweroff'
+}

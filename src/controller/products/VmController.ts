@@ -1,4 +1,4 @@
-import {KvmTemplate, Vm, VmResponse, VpsData} from '../../types/vms/vm';
+import {KvmActions, KvmTemplate, Vm, VmResponse, VpsData} from '../../types/vms/vm';
 import { MHApi } from '../../mh-api';
 import { VpsStatistics } from "../../types/vms/kvmStatistics";
 import {SshKey} from "../../types/vms/sshkey";
@@ -46,8 +46,8 @@ export class VmController {
         return MHApi.request('GET', 'kvm/' + id);
     }
 
-    public async controlKvm(id: string, act: string) {
-        return MHApi.request('PUT', `kvm/${id}/${act}`)
+    public async controlKvm(data: KvmActions): Promise<{ success: boolean }> {
+        return MHApi.request('PUT', `kvm/${data.id}/${data.act}`)
     }
 
     public async getKvmData(id: string): Promise<VpsData> {

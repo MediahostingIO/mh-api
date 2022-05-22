@@ -1,14 +1,21 @@
-import { User } from './user';
+import {User} from './user';
 
 export type Categories = Category[];
 
 export interface CustomerProduct {
+    capitalizedType: string;
     productId: string;
+    product: string;
     lastInvoice: Date;
-    canceled: null;
+    canceled: Date;
     created: Date;
     productStatus: ProductStatus;
+    price: number;
+    type: string;
     orderId: string;
+    displayName: string;
+    cancel: boolean;
+    configuration: any;
     userId: string;
     billingCycle: number;
     user: User;

@@ -101,4 +101,8 @@ export class VmController {
     public async deleteCronJob(id: string, cronJobId: string): Promise<{success: boolean, error?: string}> {
         return MHApi.request('DELETE', 'kvm/' + id + '/cronjobs/' + cronJobId);
     }
+
+    public async deleteVm(id: string): Promise<{success: boolean, error?: string}> {
+        return MHApi.request('DELETE', 'kvm/' + id);
+    }
 }

@@ -4,3 +4,8 @@ export interface Mail {
     created: Date;
     userId: string;
 }
+
+export interface MailResponse {
+    data: Mail[],
+    count: number,
+}

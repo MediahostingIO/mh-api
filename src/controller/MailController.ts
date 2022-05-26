@@ -1,5 +1,5 @@
-import { Mail } from "../types/mail";
-import { MHApi } from "../mh-api";
+import {Mail} from "../types/mail";
+import {MHApi} from "../mh-api";
 
 export class MailController {
     public async getMails(options: { page?: number, take?: number, keyword?: string }): Promise<Mail[]> {
@@ -8,6 +8,10 @@ export class MailController {
 
     public async getMail(id: string): Promise<Mail> {
         return MHApi.request('GET', 'mails/' + id);
+    }
+
+    public async getMailCount(): Promise<number> {
+        return MHApi.request('GET', 'mails/count');
     }
 
     public async getMailContent(id: string): Promise<string> {

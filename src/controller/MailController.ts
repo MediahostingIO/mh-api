@@ -9,6 +9,7 @@ export class MailController {
     public async getMail(id: string): Promise<Mail> {
         return MHApi.request('GET', 'mails/' + id);
     }
+    
 
     public async getMailCount(): Promise<number> {
         return MHApi.request('GET', 'mails/count');

@@ -1,7 +1,7 @@
-import { MHApi } from '../../mh-api';
-import { EditUserDTO, LoginDTO, LoginResponse, RegisterDTO, RegisterResponse } from '../../types/authentication/login';
-import { BaseUser } from "../../types/user";
-import { ChangePasswordDTO } from "../../types/authentication/password";
+import {MHApi} from '../../mh-api';
+import {EditUserDTO, LoginDTO, LoginResponse, RegisterDTO, RegisterResponse} from '../../types/authentication/login';
+import {BaseUser} from "../../types/user";
+import {ChangePasswordDTO} from "../../types/authentication/password";
 
 export class AuthController {
     public async login(credentials: LoginDTO): Promise<LoginResponse> {
@@ -16,6 +16,7 @@ export class AuthController {
             return value;
         });
     }
+
 
     public async getToken(): Promise<{ success: boolean, token: string }> {
         if (!localStorage?.getItem('refreshToken')) {

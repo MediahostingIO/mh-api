@@ -67,4 +67,5 @@ export class KvmController {
 	public async disconnectNic(id: string, nic: "nic0" | "nic1" | "nic2" | "nic3"): Promise<{ success: boolean }> {
 		return MHApi.request('PUT', 'kvm/' + id + '/disconnectnic/' + nic);
 	}
+
 }

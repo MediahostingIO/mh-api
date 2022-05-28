@@ -1,4 +1,4 @@
-import { AllProductConfigurations } from '../product_configurations';
+import { AllProductConfigurations } from '../ProductConfigurations';
 
 export interface CreatePaymentResponse {
     success: boolean;

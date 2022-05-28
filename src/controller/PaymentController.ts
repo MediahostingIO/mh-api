@@ -1,7 +1,7 @@
-import { CreatePaymentDTO, CreatePaymentResponse } from '../types/payments/create_payment';
+import { CreatePaymentDTO, CreatePaymentResponse } from '../types/payments/CreatePayment';
 import { MHApi } from '../mh-api';
-import { AddCreditsDTO, AddCreditsResponse } from '../types/payments/add_credits';
-import { Payment } from '../types/payments/payment';
+import { AddCreditsDTO, AddCreditsResponse } from '../types/payments/AddCredits';
+import { Payment } from '../types/payments/Payment';
 
 export class PaymentController {
     public async getInvoices(): Promise<Payment[]> {

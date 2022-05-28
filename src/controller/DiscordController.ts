@@ -1,4 +1,4 @@
-import { DiscordInfoResponse } from '../types/discord';
+import { DiscordInfoResponse } from '../types/Discord';
 import { MHApi } from '../mh-api';
 
 export class DiscordController {

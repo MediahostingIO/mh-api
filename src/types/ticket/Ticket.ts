@@ -1,4 +1,4 @@
-import { TicketPriority, TicketStatus } from "../ticket_types";
+import { TicketPriority, TicketStatus } from "../TicketTypes";
 
 export type TicketsResponse = BaseTicket[];
 export type TicketResponse = Ticket;

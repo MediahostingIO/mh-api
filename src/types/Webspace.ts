@@ -1,4 +1,4 @@
-import { CustomerProduct } from "./product";
+import { CustomerProduct } from "./Product";
 
 export interface Webspace {
     id: string;

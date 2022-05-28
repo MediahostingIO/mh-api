@@ -1,11 +1,11 @@
 import { WebspaceController } from './products/WebspaceController';
-import {Categories, CustomerProduct} from "../types/product";
+import {Categories, CustomerProduct} from "../types/Product";
 import { MHApi } from "../mh-api";
-import { VmController } from "./products/VmController";
+import { KvmController } from "./products/kvm-server/KvmController";
 import { DomainController } from "./products/domain/DomainController";
 
 export class ProductsController {
-    public readonly kvm = new VmController();
+    public readonly kvm = new KvmController();
     public readonly webspace = new WebspaceController();
     public readonly domains = new DomainController();
 

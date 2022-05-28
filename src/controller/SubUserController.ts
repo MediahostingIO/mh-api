@@ -1,6 +1,6 @@
 import {MHApi} from "../mh-api";
 import {Subuser} from "../types/Subuser";
-import {CustomerProduct} from "../types/product";
+import {CustomerProduct} from "../types/Product";
 
 export default class SubUserController {
     public async getAllSubUser(): Promise<Subuser[]> {

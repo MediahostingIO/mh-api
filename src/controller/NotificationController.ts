@@ -1,5 +1,5 @@
 import { MHApi } from "../mh-api";
-import { Notification, Notifications } from "../types/notification";
+import { Notification, Notifications } from "../types/Notification";
 
 export class NotificationsController {
     public async getAllNotifications(): Promise<Notifications> {

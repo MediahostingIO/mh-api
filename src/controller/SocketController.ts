@@ -1,7 +1,7 @@
 import {io, Socket} from "socket.io-client";
-import {Notification} from "../types/notification";
-import {KvmCallbacks} from '../types/vms/socket';
-import {Message} from '../types/ticket/ticket';
+import {Notification} from "../types/Notification";
+import {KvmCallbacks} from '../types/vms/Socket';
+import {Message} from '../types/ticket/Ticket';
 
 interface DefaultCallbacks {
     onError: (error: any) => void;

@@ -1,4 +1,4 @@
-import {VmResponse} from "./vm";
+import {VmResponse} from "./Vm";
 
 export interface KvmBackup {
     id: string,

@@ -1,4 +1,4 @@
-import { BaseUser } from '../user';
+import { BaseUser } from '../User';
 
 export type RegisterResponse = { success: boolean };
 

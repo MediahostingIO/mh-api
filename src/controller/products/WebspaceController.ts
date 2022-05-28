@@ -1,4 +1,4 @@
-import { Webspace, WebspaceStatistics } from "../../types/webspace";
+import { Webspace, WebspaceStatistics } from "../../types/Webspace";
 import { MHApi } from "../../mh-api";
 
 export class WebspaceController {

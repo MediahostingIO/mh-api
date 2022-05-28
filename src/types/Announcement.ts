@@ -1,4 +1,4 @@
-import { RoleType } from './user';
+import { RoleType } from './User';
 
 export interface Announcement {
   id: string;

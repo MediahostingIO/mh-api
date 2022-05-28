@@ -1,5 +1,5 @@
 import { MHApi } from "../mh-api";
-import { PublicStatistics, UserStatistics } from "../types/statistics";
+import { PublicStatistics, UserStatistics } from "../types/Statistics";
 
 export class StatisticsController {
     public async getPublicStatistics(): Promise<PublicStatistics> {

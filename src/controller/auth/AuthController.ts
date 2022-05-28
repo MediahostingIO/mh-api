@@ -1,7 +1,7 @@
 import {MHApi} from '../../mh-api';
-import {EditUserDTO, LoginDTO, LoginResponse, RegisterDTO, RegisterResponse} from '../../types/authentication/login';
-import {BaseUser} from "../../types/user";
-import {ChangePasswordDTO} from "../../types/authentication/password";
+import {EditUserDTO, LoginDTO, LoginResponse, RegisterDTO, RegisterResponse} from '../../types/authentication/Login';
+import {BaseUser} from "../../types/User";
+import {ChangePasswordDTO} from "../../types/authentication/Password";
 
 export class AuthController {
     public async login(credentials: LoginDTO): Promise<LoginResponse> {

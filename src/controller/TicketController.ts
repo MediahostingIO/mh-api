@@ -1,4 +1,4 @@
-import { CreateTicketDTO, TicketResponse, TicketsResponse } from "../types/ticket/ticket";
+import { CreateTicketDTO, Department, TicketResponse, TicketsResponse } from "../types/ticket/Ticket";
 import { MHApi } from "../mh-api";
 
 export class TicketController {
@@ -8,6 +8,10 @@ export class TicketController {
 
     public async getTicket(id: string): Promise<TicketResponse> {
         return MHApi.request('GET', 'tickets/' + id);
+    }
+
+    public getAllDepartments(): Promise<Department[]> {
+        return MHApi.request('GET', 'tickets/departments');
     }
 
     public async closeTicket(id: string): Promise<boolean> {

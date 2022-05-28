@@ -1,5 +1,5 @@
-import { AllProductConfigurations } from '../product_configurations';
-import { User } from '../user';
+import { AllProductConfigurations } from '../ProductConfigurations';
+import { User } from '../User';
 
 export interface Payment {
     id: string;

@@ -1,5 +1,5 @@
-import {User} from "../user";
-import {VmResponse} from "./vm";
+import {User} from "../User";
+import {VmResponse} from "./Vm";
 
 export interface Cronjob {
     id: string;

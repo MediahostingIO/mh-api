@@ -1,5 +1,5 @@
 import { MHApi } from "../../../mh-api";
-import {AuthInfo, Domain, DomainDNS, DomainResponse, Record, UpdateDomainDTO} from "../../../types/domain";
+import {AuthInfo, Domain, DomainDNS, DomainResponse, Record, UpdateDomainDTO} from "../../../types/Domain";
 import {DomainHandleController} from "./DomainHandleController";
 
 export class DomainController {

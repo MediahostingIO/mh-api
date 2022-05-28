@@ -3,7 +3,7 @@ import { PaymentController } from './controller/PaymentController';
 import { TicketController } from "./controller/TicketController";
 import { DiscordController } from "./controller/DiscordController";
 import { NotificationsController } from "./controller/NotificationController";
-import { RoleType } from "./types/user";
+import { RoleType } from "./types/User";
 import { SocketController } from "./controller/SocketController";
 import { StatisticsController } from "./controller/StatisticsController";
 import { ProductsController } from "./controller/ProductsController";

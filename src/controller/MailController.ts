@@ -1,21 +1,10 @@
-import {Mail, MailResponse} from "../types/mail";
+import { Mail, MailOptions, MailResponse } from "../types/Mail";
 import {MHApi} from "../mh-api";
 
 export class MailController {
-    public async getMails(options: { page?: number, take?: number, keyword?: string }): Promise<MailResponse> {
+
+    public async getMails(options: MailOptions): Promise<MailResponse> {
         return MHApi.request('GET', 'mails', {params: options});
-    }
-
-    public async getMail(id: string): Promise<Mail> {
-        return MHApi.request('GET', 'mails/' + id);
-    }
-
-    public async getMailCount(): Promise<number> {
-        return MHApi.request('GET', 'mails/count');
-    }
-
-    public async getMailContent(id: string): Promise<string> {
-        return MHApi.request('GET', `mails/${id}/content`);
     }
 
     public async resendMail(id: string): Promise<string> {

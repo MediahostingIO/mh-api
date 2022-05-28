@@ -7,10 +7,10 @@ import { KvmCronjobController } from "./KvmCronjobController";
 import { KvmVlanController } from "./KvmVlanController";
 
 export class KvmController {
-	public static readonly sshkeys = new KVMSshKeyController();
-	public static readonly backups = new KvmBackupController();
-	public static readonly cronjobs = new KvmCronjobController();
-	public static readonly vlans = new KvmVlanController();
+	public readonly sshkeys = new KVMSshKeyController();
+	public readonly backups = new KvmBackupController();
+	public readonly cronjobs = new KvmCronjobController();
+	public readonly vlans = new KvmVlanController();
 
 	public async templates(): Promise<KvmTemplate[]> {
 		return MHApi.request('GET', 'kvm/templates');

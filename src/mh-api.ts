@@ -8,7 +8,6 @@ import { SocketController } from "./controller/SocketController";
 import { StatisticsController } from "./controller/StatisticsController";
 import { ProductsController } from "./controller/ProductsController";
 import { AuthenticationController } from "./controller/AuthenticationController";
-import { DepartmentController } from "./controller/DepartmentController";
 import { MailController } from "./controller/MailController";
 import { AnnouncementController } from './controller/AnnouncementController';
 import { SettingsController } from './controller/SettingsController';
@@ -25,7 +24,6 @@ class MHApi {
     public static readonly discord = new DiscordController();
     public static readonly notifications = new NotificationsController();
     public static readonly tickets = new TicketController();
-    public static readonly departments = new DepartmentController();
     public static readonly statistics = new StatisticsController();
     public static readonly mails = new MailController();
     public static readonly products = new ProductsController();

@@ -13,7 +13,6 @@ interface DefaultCallbacks {
 
 export class SocketController {
     private _socketHost: string;
-
     private socketConnection: Socket;
 
     constructor(socketHost: string) {

@@ -5,7 +5,8 @@ export interface Notification {
     title: string;
     userId: string;
     content: string;
-    seen: boolean;
+    type: string;
+    duration: number;
     send: Date;
     productType: string;
     productId: string;

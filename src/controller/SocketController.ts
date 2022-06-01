@@ -41,11 +41,11 @@ export class SocketController {
             .on('ticketMessage', onTicketMessage);
     }
 
-    public connectToKvmSocket(kvmId: string, dataCallbacks: KvmCallbacks, callbacks: DefaultCallbacks): Socket {
+    public connectToKvmSocket(id: string, dataCallbacks: KvmCallbacks, callbacks: DefaultCallbacks): Socket {
         if (!localStorage?.getItem('authToken')) {
             throw new Error("authToken unavailable");
         }
-        const socket = this.createClient('kvm', callbacks, {id: kvmId});
+        const socket = this.createClient('kvm', callbacks, id);
         socket.on('kvm-data', dataCallbacks.onKvmData);
         socket.on('kvm-statistics', dataCallbacks.onKvmStatistics);
         socket.on('live-data', dataCallbacks.onLiveData);

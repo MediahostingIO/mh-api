@@ -15,3 +15,11 @@ export interface MailOptions {
 	take?: number,
 	keyword?: string
 }
+
+export enum MailTags {
+	NONE = 'none',
+	NEWSLETTER = 'newsletter',
+	INVOICE = 'invoice',
+	ORDER = 'order',
+	PRODUCT = 'product',
+}

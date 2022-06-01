@@ -1,7 +1,8 @@
 export interface Mail {
 	id: number;
 	subject: string;
-	content: string;
+	contentHTML: string;
+	contentTEXT: string;
 	tag: MailTags;
 	created: Date;
 	userId: string;

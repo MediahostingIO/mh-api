@@ -1,6 +1,8 @@
 export interface Mail {
 	id: number;
 	subject: string;
+	content: string;
+	tag: MailTags;
 	created: Date;
 	userId: string;
 }

@@ -20,9 +20,9 @@ export interface MailOptions {
 }
 
 export enum MailTags {
-	NONE = 'none',
-	NEWSLETTER = 'newsletter',
-	INVOICE = 'invoice',
-	ORDER = 'order',
-	PRODUCT = 'product',
+	NONE = 'NONE',
+	NEWSLETTER = 'NEWSLETTER',
+	INVOICE = 'INVOICE',
+	ORDER = 'ORDER',
+	PRODUCT = 'PRODUCT',
 }

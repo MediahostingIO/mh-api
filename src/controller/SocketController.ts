@@ -13,9 +13,18 @@ interface DefaultCallbacks {
 
 export class SocketController {
     private _socketHost: string;
+    private socketConnection: Socket;
 
     constructor(socketHost: string) {
         this._socketHost = socketHost;
+        this.socketConnection = io(this._socketHost, {
+            auth: {
+                token: localStorage.getItem('authToken')
+            },
+            path: '',
+            withCredentials: true,
+            transports: ['websocket'],
+        })
     }
 
     public createClient(path: string, callbacks: DefaultCallbacks, query?: any): Socket {
@@ -35,29 +44,43 @@ export class SocketController {
             .on('reconnect_error', callbacks.onReconnectError);
     }
 
-    public connectToTicketSocket(ticketId: string, onTicketMessage: (message: Message) => void, callbacks: DefaultCallbacks): Socket {
-        return this
-            .createClient('tickets', callbacks, {ticketId})
-            .on('ticketMessage', onTicketMessage);
+    public connectTicketSocket(ticketId: string, onTicketMessage: (message: Message) => void) {
+        this.socketConnection.emit("subscribe-ticket", {ticketId});
+        this.socketConnection.on('ticketMessage', onTicketMessage);
     }
 
-    public connectToKvmSocket(kvmId: string, dataCallbacks: KvmCallbacks, callbacks: DefaultCallbacks): Socket {
+    public disconnectTicketSocket(ticketId: string) {
+        this.socketConnection.emit("unsubscribe-ticket", {ticketId});
+        this.socketConnection.off('ticketMessage');
+    }
+
+    public connectKvmSocket(kvmId: string, dataCallbacks: KvmCallbacks) {
         if (!localStorage?.getItem('authToken')) {
             throw new Error("authToken unavailable");
         }
-        const socket = this.createClient('kvm', callbacks, {id: kvmId});
-        socket.on('kvm-data', dataCallbacks.onKvmData);
-        socket.on('kvm-statistics', dataCallbacks.onKvmStatistics);
-        socket.on('live-data', dataCallbacks.onLiveData);
-        return socket;
+        this.socketConnection.emit("subscribe-kvm", {kvmId});
+        this.socketConnection.on('kvm-data', dataCallbacks.onKvmData);
+        this.socketConnection.on('kvm-statistics', dataCallbacks.onKvmStatistics);
+        this.socketConnection.on('live-data', dataCallbacks.onLiveData);
     }
 
-    public connectToNotificationSocket(onNotification: (notification: Notification) => void, callbacks: DefaultCallbacks): Socket {
+    public disconnectKvmSocket(kvmId: string) {
+        this.socketConnection.emit("unsubscribe-kvm", {kvmId});
+        this.socketConnection.off('kvm-data');
+        this.socketConnection.off('kvm-statistics');
+        this.socketConnection.off('live-data');
+    }
+
+    public connectToNotificationSocket(onNotification: (notification: Notification) => void) {
         if (!localStorage?.getItem('authToken')) {
             throw new Error("authToken unavailable");
         }
-        return this
-            .createClient('notifications', callbacks)
-            .on('notification', onNotification);
+        this.socketConnection.emit("subscribe-notification");
+        this.socketConnection.on('notification', onNotification);
+    }
+
+    public disconnectNotificationSocket() {
+        this.socketConnection.emit("unsubscribe-notification");
+        this.socketConnection.off('notification');
     }
 }

@@ -5,8 +5,11 @@ export interface Notification {
     title: string;
     userId: string;
     content: string;
-    seen: boolean;
+    type: NotificationType;
+    duration: number;
     send: Date;
     productType: string;
     productId: string;
 }
+
+export type NotificationType = "success" | "error" | "warning" | "info";

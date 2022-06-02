@@ -8,7 +8,8 @@
     "lint": "tslint -p tsconfig.json",
     "version": "git add -A src",
     "postversion": "git push && git push --tags",
-    "build": "tsc && npm version patch && npm publish"
+    "publish": "tsc && npm version patch && npm publish",
+    "build": "tsc"
   },
   "files": [
     "lib/**/*"

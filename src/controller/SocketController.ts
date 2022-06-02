@@ -13,12 +13,11 @@ interface DefaultCallbacks {
 
 export class SocketController {
     private _socketHost: string;
-
-    private socketConnetion: Socket;
+    private socketConnection: Socket;
 
     constructor(socketHost: string) {
         this._socketHost = socketHost;
-        this.socketConnetion = io(this._socketHost, {
+        this.socketConnection = io(this._socketHost, {
             auth: {
                 token: localStorage.getItem('authToken')
             },
@@ -46,42 +45,42 @@ export class SocketController {
     }
 
     public connectTicketSocket(ticketId: string, onTicketMessage: (message: Message) => void) {
-        this.socketConnetion.emit("subscribe-ticket", {ticketId});
-        this.socketConnetion.on('ticketMessage', onTicketMessage);
+        this.socketConnection.emit("subscribe-ticket", {ticketId});
+        this.socketConnection.on('ticketMessage', onTicketMessage);
     }
 
     public disconnectTicketSocket(ticketId: string) {
-        this.socketConnetion.emit("unsubscribe-ticket", {ticketId});
-        this.socketConnetion.off('ticketMessage');
+        this.socketConnection.emit("unsubscribe-ticket", {ticketId});
+        this.socketConnection.off('ticketMessage');
     }
 
     public connectKvmSocket(kvmId: string, dataCallbacks: KvmCallbacks) {
         if (!localStorage?.getItem('authToken')) {
             throw new Error("authToken unavailable");
         }
-        this.socketConnetion.emit("subscribe-kvm", {kvmId});
-        this.socketConnetion.on('kvm-data', dataCallbacks.onKvmData);
-        this.socketConnetion.on('kvm-statistics', dataCallbacks.onKvmStatistics);
-        this.socketConnetion.on('live-data', dataCallbacks.onLiveData);
+        this.socketConnection.emit("subscribe-kvm", {kvmId});
+        this.socketConnection.on('kvm-data', dataCallbacks.onKvmData);
+        this.socketConnection.on('kvm-statistics', dataCallbacks.onKvmStatistics);
+        this.socketConnection.on('live-data', dataCallbacks.onLiveData);
     }
 
     public disconnectKvmSocket(kvmId: string) {
-        this.socketConnetion.emit("unsubscribe-kvm", {kvmId});
-        this.socketConnetion.off('kvm-data');
-        this.socketConnetion.off('kvm-statistics');
-        this.socketConnetion.off('live-data');
+        this.socketConnection.emit("unsubscribe-kvm", {kvmId});
+        this.socketConnection.off('kvm-data');
+        this.socketConnection.off('kvm-statistics');
+        this.socketConnection.off('live-data');
     }
 
     public connectToNotificationSocket(onNotification: (notification: Notification) => void) {
         if (!localStorage?.getItem('authToken')) {
             throw new Error("authToken unavailable");
         }
-        this.socketConnetion.emit("subscribe-notification");
-        this.socketConnetion.on('notification', onNotification);
+        this.socketConnection.emit("subscribe-notification");
+        this.socketConnection.on('notification', onNotification);
     }
 
     public disconnectNotificationSocket() {
-        this.socketConnetion.emit("unsubscribe-notification");
-        this.socketConnetion.off('notification');
+        this.socketConnection.emit("unsubscribe-notification");
+        this.socketConnection.off('notification');
     }
 }

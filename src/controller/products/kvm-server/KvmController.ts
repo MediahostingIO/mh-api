@@ -32,6 +32,10 @@ export class KvmController {
 		return MHApi.request('GET', 'kvm/' + id + '/data');
 	}
 
+	public async changeRdns(id: string, rdns: string): Promise<{ success: boolean }> {
+		return MHApi.request('GET', 'kvm/' + id + '/rdns', {data: {rdns}});
+	}
+
 	public async getKvmStatistics(id: string): Promise<VpsStatistics[]> {
 		return MHApi.request('GET', 'kvm/' + id + '/statistics');
 	}

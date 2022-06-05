@@ -5,10 +5,6 @@ export interface ControlVmResponse extends Vm {
 	response?: string;
 }
 
-export interface VmResponse extends Vm {
-	status: string;
-}
-
 export interface VpsData {
 	cpu: string;
 	memory: number;
@@ -57,6 +53,7 @@ export interface Vm {
 	diskCapacity: string;
 	hostname: string;
 	template: string;
+	status: KvmServerStatus;
 	ram: number;
 	cores: number;
 	productName: string;
@@ -88,4 +85,17 @@ export interface KvmRescue {
 	enable: boolean,
 	password?: string
 }
+
+export enum KvmServerStatus {
+	running = "running",
+	stopped = "stopped",
+	suspended = "suspended",
+	create_backup = "create_backup",
+	restore_backup = "restore_backup",
+	migrate = "migrate",
+	setup = "setup",
+	setup_failed = "setup_failed",
+	reinstall = "reinstall",
+}
+
 

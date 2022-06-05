@@ -1,4 +1,4 @@
-import { KvmActions, KvmReinstall, KvmRescue, KvmTemplate, Vm, VmResponse, VpsData } from '../../../types/vms/Vm';
+import { KvmActions, KvmReinstall, KvmRescue, KvmTemplate, Vm, VpsData } from '../../../types/vms/Vm';
 import { MHApi } from '../../../mh-api';
 import { VpsStatistics } from "../../../types/vms/KvmStatistics";
 import { KVMSshKeyController } from "./KvmSshKeyController";
@@ -20,7 +20,7 @@ export class KvmController {
 		return MHApi.request('GET', 'kvm');
 	}
 
-	public async getKvm(id: string): Promise<VmResponse> {
+	public async getKvm(id: string): Promise<Vm> {
 		return MHApi.request('GET', 'kvm/' + id);
 	}
 

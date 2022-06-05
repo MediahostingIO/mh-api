@@ -1,9 +1,9 @@
-import {VmResponse} from "./Vm";
+import { Vm } from "./Vm";
 
 export interface KvmBackup {
     id: string,
     filename: string,
-    kvm: VmResponse,
+    kvm: Vm,
     created: Date,
     status: BackupStatus,
 }

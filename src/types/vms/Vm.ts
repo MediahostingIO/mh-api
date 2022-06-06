@@ -98,4 +98,9 @@ export enum KvmServerStatus {
 	reinstall = "reinstall",
 }
 
-
+export interface KvmServerNetworkInterface {
+	"name": string,
+	"mac": string,
+	"ipv4": string,
+	"ipv6": string
+}

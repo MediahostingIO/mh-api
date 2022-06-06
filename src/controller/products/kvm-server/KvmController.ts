@@ -1,4 +1,12 @@
-import { KvmActions, KvmReinstall, KvmRescue, KvmTemplate, Vm, VpsData } from '../../../types/vms/Vm';
+import {
+	KvmActions,
+	KvmReinstall,
+	KvmRescue,
+	KvmServerNetworkInterface,
+	KvmTemplate,
+	Vm,
+	VpsData
+} from '../../../types/vms/Vm';
 import { MHApi } from '../../../mh-api';
 import { VpsStatistics } from "../../../types/vms/KvmStatistics";
 import { KVMSshKeyController } from "./KvmSshKeyController";
@@ -30,6 +38,10 @@ export class KvmController {
 
 	public async getKvmData(id: string): Promise<VpsData> {
 		return MHApi.request('GET', 'kvm/' + id + '/data');
+	}
+
+	public async getKvmNetworkInterface(id: string): Promise<KvmServerNetworkInterface[]> {
+		return MHApi.request('GET', 'kvm/' + id + '/network');
 	}
 
 	public async getKvmStatistics(id: string): Promise<VpsStatistics[]> {

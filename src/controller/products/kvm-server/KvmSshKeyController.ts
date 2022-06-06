@@ -3,19 +3,23 @@ import {MHApi} from "../../../mh-api";
 
 export class KVMSshKeyController {
 	public async getSshKeys(): Promise<SshKey[]> {
-		return MHApi.request('GET', 'kvm/sshkeys');
+		return MHApi.request('GET', 'sshkeys');
 	}
 
 	public async getSshKey(id: string): Promise<SshKey> {
-		return MHApi.request('GET', 'kvm/sshkeys/' + id);
+		return MHApi.request('GET', 'sshkeys/' + id);
 	}
 
 	public async createSshKey(name: string, publicKey: string): Promise<SshKey> {
-		return MHApi.request('POST', 'kvm/sshkeys', {data: {name, publicKey}});
+		return MHApi.request('POST', 'sshkeys', {data: {name, publicKey}});
+	}
+
+	public async editSshKey(id: string, name: string, publicKey: string): Promise<SshKey> {
+		return MHApi.request('POST', 'sshkeys/' + id, {data: {name, publicKey}});
 	}
 
 	public async deleteSshKey(id: string, sshKeyId: string): Promise<{ success: boolean }> {
-		return MHApi.request('DELETE', 'kvm/' + id + '/sshkeys/' + sshKeyId);
+		return MHApi.request('DELETE', 'sshkeys/' + sshKeyId);
 	}
 
 	public async setSshKey(id: string, sshKeyId: string): Promise<{ success: boolean }> {
@@ -24,9 +28,5 @@ export class KVMSshKeyController {
 
 	public async unsetSshKey(id: string, sshKeyId: string): Promise<{ success: boolean }> {
 		return MHApi.request('PUT', 'kvm/' + id + '/sshkeys/' + sshKeyId + '/disable');
-	}
-
-	public async editSshKey(id: string, name: string, publicKey: string): Promise<SshKey> {
-		return MHApi.request('POST', 'kvm/sshkeys/' + id, {data: {name, publicKey}});
 	}
 }

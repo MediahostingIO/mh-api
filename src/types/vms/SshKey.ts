@@ -6,4 +6,5 @@ export interface SshKey {
     publicKey?: string;
     userId?: string;
     user?: User;
+    inUse?: boolean;
 }

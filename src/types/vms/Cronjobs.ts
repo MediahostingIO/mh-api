@@ -1,5 +1,5 @@
 import {User} from "../User";
-import {VmResponse} from "./Vm";
+import { Vm } from "./Vm";
 
 export interface Cronjob {
     id: string;
@@ -9,7 +9,7 @@ export interface Cronjob {
     active: boolean;
     time: string;
     options: any;
-    kvm?: VmResponse;
+    kvm?: Vm;
     user?: User;
 }
 

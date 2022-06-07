@@ -1,4 +1,12 @@
-import { KvmActions, KvmReinstall, KvmRescue, KvmTemplate, Vm, VmResponse, VpsData } from '../../../types/vms/Vm';
+import {
+	KvmActions,
+	KvmReinstall,
+	KvmRescue,
+	KvmServerNetworkInterface,
+	KvmTemplate,
+	Vm,
+	VpsData
+} from '../../../types/vms/Vm';
 import { MHApi } from '../../../mh-api';
 import { VpsStatistics } from "../../../types/vms/KvmStatistics";
 import { KVMSshKeyController } from "./KvmSshKeyController";
@@ -20,7 +28,7 @@ export class KvmController {
 		return MHApi.request('GET', 'kvm');
 	}
 
-	public async getKvm(id: string): Promise<VmResponse> {
+	public async getKvm(id: string): Promise<Vm> {
 		return MHApi.request('GET', 'kvm/' + id);
 	}
 
@@ -32,12 +40,16 @@ export class KvmController {
 		return MHApi.request('GET', 'kvm/' + id + '/data');
 	}
 
-	public async changeRdns(id: string, rdns: string): Promise<{ success: boolean }> {
-		return MHApi.request('GET', 'kvm/' + id + '/rdns', {data: {rdns}});
+	public async getKvmNetworkInterface(id: string): Promise<KvmServerNetworkInterface[]> {
+		return MHApi.request('GET', 'kvm/' + id + '/network');
 	}
 
 	public async getKvmStatistics(id: string): Promise<VpsStatistics[]> {
 		return MHApi.request('GET', 'kvm/' + id + '/statistics');
+	}
+
+	public async changeRdns(id: string, rdns: string): Promise<{ success: boolean }> {
+		return MHApi.request('PUT', 'kvm/' + id + '/rdns', {data: {rdns}});
 	}
 
 	public async reinstallKvm(id: string, data: KvmReinstall): Promise<void> {

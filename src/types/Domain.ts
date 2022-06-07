@@ -44,6 +44,7 @@ export interface Domain {
     userId: string;
     productId: string;
     product: CustomerProduct;
+    domainData: DomainData;
 }
 
 export interface DomainData {

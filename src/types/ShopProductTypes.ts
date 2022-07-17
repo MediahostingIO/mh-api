@@ -1,8 +1,1 @@
-export type ShopProductTypes = {
-	'all',
-	'domains',
-	'webspace',
-	'kvmserver',
-	'certificate',
-	'mailserver',
-}
+export type ShopProductType = 'all' | 'domains' | 'webspace' | 'kvmserver' | 'certificates' | 'mailserver';

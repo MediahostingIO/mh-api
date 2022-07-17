@@ -12,12 +12,14 @@ import { MailController } from "./controller/MailController";
 import { AnnouncementController } from './controller/AnnouncementController';
 import { SettingsController } from './controller/SettingsController';
 import SubUserController from "./controller/SubUserController";
+import ShopController from "./controller/ShopController";
 
 class MHApi {
     private static _authToken: string;
     private static _host: string;
     private static _active = false;
 
+    public static readonly shop = new ShopController();
     public static readonly authentication = new AuthenticationController();
     public static readonly announcements = new AnnouncementController();
     public static readonly payments = new PaymentController();

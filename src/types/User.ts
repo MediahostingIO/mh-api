@@ -1,5 +1,20 @@
-export interface BaseUser {
-    id: string;
+export interface BaseUser extends SmallBaseUser {
+    domainHandle: {
+        birthday?: string;
+        birthplace?: string;
+        stateOfBirth?: string;
+        countryOfBirth?: string;
+        identifyCardNumber?: string;
+        issuingAuthority?: string;
+        dateOfIssue?: string;
+        taxNumber?: string;
+        taxId?: string;
+        companyNumber?: string;
+    }
+}
+
+export interface SmallBaseUser {
+    id?: string;
     firstName: string;
     lastName: string;
     gender: string;
@@ -19,18 +34,6 @@ export interface BaseUser {
     twoFactorAuthenticationEnabled: boolean;
     role: RoleType;
     lastLogin: Date;
-    domainHandle: {
-        birthday?: string;
-        birthplace?: string;
-        stateOfBirth?: string;
-        countryOfBirth?: string;
-        identifyCardNumber?: string;
-        issuingAuthority?: string;
-        dateOfIssue?: string;
-        taxNumber?: string;
-        taxId?: string;
-        companyNumber?: string;
-    }
 }
 
 export interface User {

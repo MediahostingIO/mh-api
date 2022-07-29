@@ -13,6 +13,7 @@ import { AnnouncementController } from './controller/AnnouncementController';
 import { SettingsController } from './controller/SettingsController';
 import SubUserController from "./controller/SubUserController";
 import ShopController from "./controller/ShopController";
+import TeamController from "./controller/TeamController";
 
 class MHApi {
     private static _authToken: string;
@@ -20,6 +21,7 @@ class MHApi {
     private static _active = false;
 
     public static readonly shop = new ShopController();
+    public static readonly team = new TeamController();
     public static readonly authentication = new AuthenticationController();
     public static readonly announcements = new AnnouncementController();
     public static readonly payments = new PaymentController();

@@ -7,3 +7,10 @@ export interface Announcement {
   roles?: RoleType[];
   created: Date;
 }
+
+export interface AnnouncementDTO {
+  title: string;
+  message: string;
+  roles?: RoleType[];
+  sendMail: boolean;
+}

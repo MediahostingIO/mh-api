@@ -11,7 +11,7 @@ export interface CustomerProduct {
     created: Date;
     productStatus: ProductStatus;
     price: number;
-    type: string;
+    productType: string;
     orderId: string;
     displayName: string;
     cancel: boolean;

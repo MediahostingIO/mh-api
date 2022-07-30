@@ -10,7 +10,7 @@ export class TicketController {
         return MHApi.request('GET', 'tickets/' + id);
     }
 
-    public getAllDepartments(): Promise<Department[]> {
+    public async getAllDepartments(): Promise<Department[]> {
         return MHApi.request('GET', 'tickets/departments');
     }
 

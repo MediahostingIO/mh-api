@@ -66,6 +66,7 @@ export interface BaseTicket {
 }
 
 export interface Department {
-    id: number,
-    name: string
+    id: number;
+    name: string;
+    sortId: number;
 }

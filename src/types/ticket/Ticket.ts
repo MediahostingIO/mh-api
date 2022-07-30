@@ -12,6 +12,16 @@ export interface CreateTicketDTO {
     productId?: string;
 }
 
+export interface CreateTicketTeamDTO {
+    title: string;
+    department: string;
+    content: string;
+    priority: TicketPriority;
+    productType?: string;
+    productId?: string;
+    userId: number;
+}
+
 export interface Ticket extends BaseTicket {
     messages: Message[];
     user: User;

@@ -14,7 +14,7 @@ export interface BaseUser extends SmallBaseUser {
 }
 
 export interface SmallBaseUser {
-    id?: string;
+    id?: number;
     firstName: string;
     lastName: string;
     gender: string;
@@ -23,6 +23,7 @@ export interface SmallBaseUser {
     username: string;
     billingEmail?: string;
     street: string;
+    houseNumber: string;
     city: string;
     state: string;
     postCode: string;

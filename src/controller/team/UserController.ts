@@ -4,22 +4,22 @@ import { CustomerProduct } from "../../types/Product";
 
 export default class UserController {
 	public async getAll(): Promise<SmallBaseUser[]> {
-		return MHApi.request('GET', 'team/users');
+		return MHApi.request('GET', 'team/customer');
 	}
 
-	public async get(id: string): Promise<SmallBaseUser> {
-		return MHApi.request('GET', 'team/users/' + id);
+	public async get(id: number): Promise<SmallBaseUser> {
+		return MHApi.request('GET', 'team/customer/' + id);
 	}
 
-	public async getCustomerProducts(id: string): Promise<CustomerProduct[]> {
-		return MHApi.request('GET', 'team/users/' + id + '/customerproducts');
+	public async getCustomerProducts(id: number): Promise<CustomerProduct[]> {
+		return MHApi.request('GET', 'team/customer/' + id + '/customerproducts');
 	}
 
 	public async create(user: SmallBaseUser): Promise<any> {
-		return MHApi.request('POST', 'team/users', { data: user });
+		return MHApi.request('POST', 'team/customer', { data: user });
 	}
 
-	public async update(id: string, user: SmallBaseUser): Promise<any> {
-		return MHApi.request('PUT', 'team/users/' + id, { data: user });
+	public async update(id: number, user: SmallBaseUser): Promise<any> {
+		return MHApi.request('PUT', 'team/customer/' + id, { data: user });
 	}
 }

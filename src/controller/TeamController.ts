@@ -8,7 +8,7 @@ import PaymentController from "./team/PaymentController";
 import StatisticsController from "./team/StatisticsController";
 import SettingsController from "./team/SettingsController";
 import TicketController from "./team/TicketController";
-import UserController from "./team/UserController";
+import CustomerController from "./team/CustomerController";
 import UtilsController from "./team/UtilsController";
 import MailTemplateController from "./team/MailTemplateController";
 import NetworkController from "./team/NetworkController";
@@ -26,6 +26,6 @@ export default class TeamController {
 	public settings: SettingsController = new SettingsController();
 	public statistics: StatisticsController = new StatisticsController();
 	public tickets: TicketController = new TicketController();
-	public user: UserController = new UserController();
+	public user: CustomerController = new CustomerController();
 	public utils: UtilsController = new UtilsController();
 }

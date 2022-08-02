@@ -1,7 +1,6 @@
-import { SmallBaseUser } from "../../types/User";
 import { MHApi } from "../../mh-api";
 
-export default class UserNotes {
+export default class CustomerNotes {
 	public async get(id: number): Promise<{ userId: number, notes: string }> {
 		return MHApi.request('GET', 'team/customer/' + id);
 	}

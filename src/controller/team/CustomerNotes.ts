@@ -6,6 +6,6 @@ export default class CustomerNotes {
 	}
 
 	public async update(id: number, notes: string): Promise<any> {
-		return MHApi.request('GET', 'team/notes/' + id, {data: { notes }});
+		return MHApi.request('PUT', 'team/notes/' + id, {data: { notes }});
 	}
 }

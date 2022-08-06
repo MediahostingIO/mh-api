@@ -1,7 +1,14 @@
 import { MHApi } from "../../mh-api";
 import { Product } from "../../types/team/Product";
+import { KvmController } from "./products/kvm-server/KvmController";
+import { WebspaceController } from "./products/WebspaceController";
+import DomainController from "./products/DomainController";
 
 export default class ProductsController {
+    public readonly kvm = new KvmController();
+    public readonly webspace = new WebspaceController();
+    public readonly domains = new DomainController();
+
     public async getAll(): Promise<Product[]> {
         return MHApi.request('GET', 'team/products');
     }

@@ -6,7 +6,7 @@ export default class DomainController {
     public readonly handles = new DomainHandleController();
 
     public async getAllDomains(userId: number): Promise<Domain[]> {
-        return MHApi.request('GET', 'team/domains/' + userId);
+        return MHApi.request('GET', 'team/domains/all/' + userId);
     }
 
     public async getDomain(id: number): Promise<DomainResponse> {

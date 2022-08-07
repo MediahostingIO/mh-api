@@ -1,9 +1,4 @@
-import {
-	CreateTicketTeamDTO,
-	Department,
-	TicketResponse,
-	TicketsResponse
-} from "../../types/ticket/Ticket";
+import { CreateTicketTeamDTO, Department, TicketResponse, TicketsResponse } from "../../types/ticket/Ticket";
 import { MHApi } from "../../mh-api";
 
 export default class TicketController {

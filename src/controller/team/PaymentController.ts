@@ -5,7 +5,7 @@ import { CreatePaymentDTO, CreatePaymentResponse } from "../../types/payments/Cr
 
 export default class PaymentController {
     public async getInvoices(userId: number): Promise<Payment[]> {
-        return MHApi.request('GET', 'team/payments/' + userId);
+        return MHApi.request('GET', 'team/payments/' + userId + '/invoices');
     }
 
     public async getInvoice(id: string): Promise<Payment> {

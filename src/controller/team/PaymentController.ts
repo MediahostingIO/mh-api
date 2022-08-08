@@ -4,8 +4,8 @@ import { AddCreditsDTO, AddCreditsResponse } from "../../types/payments/AddCredi
 import { CreatePaymentDTO, CreatePaymentResponse } from "../../types/payments/CreatePayment";
 
 export default class PaymentController {
-    public async getInvoices(): Promise<Payment[]> {
-        return MHApi.request('GET', 'payments');
+    public async getInvoices(userId: number): Promise<Payment[]> {
+        return MHApi.request('GET', 'team/payments/' + userId);
     }
 
     public async getInvoice(id: string): Promise<Payment> {
@@ -16,18 +16,6 @@ export default class PaymentController {
         return MHApi.request('GET', 'payments/' + id + '/mail');
     }
 
-    public exportAllInvoices(): void {
-        window.location.replace(`https://restapi.mediahosting.io/api/payments/export?token=${localStorage.getItem('authToken')}`);
-    }
-
-    public exportInvoice(id: string): void {
-        window.location.replace(`https://restapi.mediahosting.io/api/payments/${id}/export?token=${localStorage.getItem('authToken')}`);
-    }
-
-    public exportInvoiceUrl(id: string): string {
-        return `https://restapi.mediahosting.io/api/payments/${id}/export?token=${localStorage.getItem('authToken')}`;
-    }
-
     public async addCredits(data: AddCreditsDTO): Promise<AddCreditsResponse> {
         return MHApi.request('POST', 'credits', {data});
     }
@@ -35,7 +23,6 @@ export default class PaymentController {
     public async createPayment(data: CreatePaymentDTO): Promise<CreatePaymentResponse> {
         return MHApi.request('POST', 'payments', {data});
     }
-
 
 }
 

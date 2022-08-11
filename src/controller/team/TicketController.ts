@@ -2,8 +2,8 @@ import { CreateTicketTeamDTO, Department, TicketResponse, TicketsResponse } from
 import { MHApi } from "../../mh-api";
 
 export default class TicketController {
-	public async getAllTickets(): Promise<TicketsResponse> {
-		return MHApi.request('GET', 'team/tickets');
+	public async getAllTickets(id: number): Promise<TicketsResponse> {
+		return MHApi.request('GET', 'team/tickets/all/' + id);
 	}
 
 	public async getTicket(id: string): Promise<TicketResponse> {

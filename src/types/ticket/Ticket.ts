@@ -17,7 +17,8 @@ export interface CreateTicketTeamDTO {
     priority: TicketPriority;
     productType?: string;
     productId?: string;
-    userId: number;
+    customerId: number;
+    message: string;
 }
 
 export interface Ticket extends BaseTicket {

@@ -22,10 +22,10 @@ export default class ProductsController {
     }
 
     public async editProduct(product: Product): Promise<any> {
-        return MHApi.request('PUT', 'team/products' + product.id, { data: product });
+        return MHApi.request('PUT', 'team/products/' + product.id, { data: product });
     }
 
     public async deleteProduct(id: number): Promise<any> {
-        return MHApi.request('DELETE', 'team/products' + id);
+        return MHApi.request('DELETE', 'team/products/' + id);
     }
 }

@@ -14,7 +14,7 @@ export default class ProductsController {
     }
 
     public async get(id: number): Promise<Product> {
-        return MHApi.request('GET', 'team/products' + id);
+        return MHApi.request('GET', 'team/products/' + id);
     }
 
     public async createProduct(product: Product): Promise<any> {

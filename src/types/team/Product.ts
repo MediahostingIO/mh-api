@@ -8,7 +8,7 @@ export interface Product {
 	itemType: ProductItemType;
 	items?: (Item | SliderItem | ListItem)[];
 	displayName: string;
-	description: {}[];
+	description: {icon: string, text: string}[];
 	shortDescription: string;
 	sortId: number;
 	payOnOrder: boolean;

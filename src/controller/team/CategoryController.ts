@@ -14,6 +14,10 @@ export default class CategoryController {
 		return MHApi.request('POST', 'team/category', { data });
 	}
 
+	public async edit(id: string, data: Category): Promise<boolean> {
+		return MHApi.request('PUT', 'team/category/' + id, { data });
+	}
+
 	public async delete(id: string): Promise<boolean> {
 		return MHApi.request('DELETE', 'team/category/' + id);
 	}

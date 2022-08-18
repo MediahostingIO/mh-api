@@ -4,6 +4,10 @@ import { AddCreditsDTO, AddCreditsResponse } from "../../types/payments/AddCredi
 import { CreatePaymentDTO, CreatePaymentResponse } from "../../types/payments/CreatePayment";
 
 export default class PaymentController {
+    public async getAllInvoices(userId: number): Promise<Payment[]> {
+        return MHApi.request('GET', 'team/payments/invoices');
+    }
+
     public async getInvoices(userId: number): Promise<Payment[]> {
         return MHApi.request('GET', 'team/payments/' + userId + '/invoices');
     }

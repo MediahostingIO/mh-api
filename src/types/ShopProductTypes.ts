@@ -1,1 +1,1 @@
-export type ShopProductType = 'all' | 'domains' | 'webspace' | 'kvmserver' | 'certificates' | 'mailserver';
+export type ShopProductType = 'all' | 'domains' | 'webspace' | 'kvm' | 'certificates' | 'mailserver';
